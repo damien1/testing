@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://single.local/" />
+<title>add_page_with_shortcode</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">add_page_with_shortcode</td></tr>
+</thead><tbody>
+<tr>
+	<td>store</td>
+	<td>javascript{Math.floor(Math.random()*8)}</td>
+	<td>a</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{['London','Paris','Istanbul', 'Sydney', 'Brisbane', 'Auckland'][Math.floor(Math.random()*6)]}</td>
+	<td>tag</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>${a} ${tag}</td>
+	<td>page</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/wp-admin/post-new.php?post_type=page</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=title</td>
+	<td>${page}</td>
+</tr>
+<tr>
+	<td>runScript</td>
+	<td>tinyMCE.activeEditor.setContent('[dbc_isotope]')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=publish</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=View page</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>class=isocontent isotope</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>id=wpadminbar</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td>${page}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextNotPresent</td>
+	<td>boo-Isotope settings not saved</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextNotPresent</td>
+	<td>[dbc_isotope]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>css=${colourvalue}</td>
+	<td></td>
+</tr>
+</tbody></table>
+</body>
+</html>
